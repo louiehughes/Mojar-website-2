@@ -59,5 +59,53 @@
 .pswp-gallery a:hover img {
   transform: scale(1.05);
 }
+.sidebar-container {
+  position: fixed;
+  top: 30vh; /* 30% of the viewport height — scroll-independent */
+  right: 0;
+  height: 8cm;
+  display: flex;
+  z-index: 1000;
 }
+
+.flashing-tab {
+  width: 40px;
+  height: 100%;
+  background-image: url('spring.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: flashTab 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes flashTab {
+  0% { background-image: url('spring.png'); }
+  50% { background-image: url('recipes.png'); }
+  100% { background-image: url('spring.png'); }
+}
+
+.sidebar-gallery {
+  width: 250px;
+  background-color: white;
+  border-left: 2px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.sidebar-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Hover logic */
+.sidebar-container:hover .sidebar-gallery {
+  transform: translateX(0);
+}
+
 
